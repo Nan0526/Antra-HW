@@ -1,7 +1,6 @@
-package DayTwo;
+package Day2;
 //A Java program to demonstrate Comparator interface
 
-import java.io.*;
 import java.util.*;
 /*
 A comparable object is capable of comparing itself with another object. The class itself must

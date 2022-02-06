@@ -1,9 +1,8 @@
-package DayTwoDataStructure;
+package Day2DataStructure;
 
 
 // Java program to implement Queue using
 // two stacks with costly enQueue()
-import java.util.*;
 
 // Java program for array
 // implementation of queue

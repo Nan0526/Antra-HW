@@ -1,4 +1,4 @@
-package DayTwoDataStructure;
+package Day2DataStructure;
 
 class Stack
 {

@@ -1,9 +1,7 @@
-package DayTwoDataStructure;
+package Day2DataStructure;
 
 
-import java.io.*;
-
-    // Java program to implement
+// Java program to implement
     // a Singly Linked List
     public class LinkedList {
 

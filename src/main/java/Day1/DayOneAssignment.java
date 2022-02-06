@@ -1,4 +1,4 @@
-package DayOneAssignment;
+package Day1;
 
 public class DayOneAssignment {
 
