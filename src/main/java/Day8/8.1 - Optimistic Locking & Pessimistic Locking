@@ -1,0 +1,15 @@
+The optimistic locking model, also referred to as optimistic concurrency control,
+is a concurrency control method used in relational databases that does not use
+record locking. Optimistic locking allows multiple users to attempt to update the
+same record without informing the users that others are also attempting to update
+the record. The record changes are validated only when the record is committed.
+If one user successfully updates the record, the other users attempting to commit
+their concurrent updates are informed that a conflict exists.
+
+
+The pessimistic locking model prevents simultaneous updates to records. As soon as
+one user starts to update a record, a lock is placed on it. Other users who attempt
+to update this record are informed that another user has an update in progress. The
+ other users must wait until the first user has finished committing their changes,
+ thereby releasing the record lock. Only then can another user make changes based
+ on the previous user's changes.

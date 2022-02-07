@@ -1,0 +1,9 @@
+A view represents a virtual table. We can join multiple tables in a view and use the view to present
+the data as if the data were coming from a single table. Views are not stored physically on the disk.
+
+A stored procedure uses parameters to do a function when it is updating and inserting data, or
+returning single values or data sets.
+
+Materialized View is a physical copy, picture or snapshot of the base table. Materialized View
+is updated manually or by applying triggers to it based upon the query definition. Materialized
+View responds faster than View as the Materialized View is precomputed.

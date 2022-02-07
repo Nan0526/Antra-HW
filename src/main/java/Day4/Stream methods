@@ -1,0 +1,51 @@
+Stream map() is an intermediate operation that returns a stream consisting of the results of applying the given function to the elements of this stream.
+It’s method signature is
+<R> Stream<R> map(Function<? super T,? extends R> mapper)
+
+Example to convert letters to upper cases:
+List<String> letters = Arrays.asList("a", "b", "c", "d");
+List<String> upper = letters.stream().map(String::toUpperCase).collect(Collectors.toList());
+System.out.println(upper); //[A, B, C, D]
+
+
+Stream flatmap() is an intermediate operation that returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element.
+It’s method signature is
+<R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)
+
+Example to convert a list of Strings to number:
+List<String> list = Arrays.asList("9.0", "5.2", "8", "10", "20.9");
+list.stream().flatMap(num -> Stream.of(num)).forEach(System.out::println);
+//9.0
+  5.2
+  8
+  10
+  20.9
+
+Stream distinct() is a stateful intermediate operation that returns a stream consisting of the distinct elements of this stream.
+Example:
+List<Integer> list = Arrays.asList(1, 2, 3, 4, 3, 2, 1);
+List<Integer> newList = list.stream().distinct().collect(Collectors.toList());
+System.out.println(newList); // [1,2,3,4]
+
+
+Stream limit() is a short-circuiting stateful intermediate operation that returns a stream consisting of the elements of this stream, truncated to be no longer than maxSize in length.
+
+Example:
+Stream<Integer> evenStream = Stream.iterate(0, n -> n + 2);;
+List<Integer> list = evenStream.limit(5).collect(Collectors.toList());
+System.out.println(newList); // [0,2,4,5,8]
+Method References:
+There are 4 kinds of method references
+
+1.	Reference to a static method:
+Syntax: ContainingClass::staticMethodName
+
+2.	Reference to an instance method of a particular object
+Syntax: containingObject::instanceMethodName
+
+3.	Reference to an instance method of an arbitrary object of a particular type
+Syntax: ContainingType::methodName
+
+4.	Reference to a constructor
+Syntax: ClassName::new
+

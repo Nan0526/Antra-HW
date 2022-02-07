@@ -1,0 +1,30 @@
+Common features for Redis and Memcached :
+-	support sub-millisecond response times. By storing data in-memory they can read data more quickly than disk based databases.
+-	are syntactically easy to use and require a minimal amount of code to integrate into your application.
+-	allow you to distribute your data among multiple nodes. This allows you to scale out to better handle more data when demand grows.
+-	have many open-source clients available for developers and support many programming languages
+Feature only in Memcached:
+-	is multithreaded. It can make use of multiple processing cores. This means that you can handle more
+operations by scaling up compute capacity.
+
+Functions only for Redis:
+-	In addition to strings, Redis supports lists, sets, sorted sets, hashes, bit arrays, and
+hyperloglogs. Applications can use these more advanced data structures to support a variety of
+use cases. For example, you can use Redis Sorted Sets to easily implement a game leaderboard
+that keeps a list of players sorted by their rank.
+-	you can keep your data on disk with a point in time snapshot which can be used for archiving or recovery.
+-	lets you create multiple replicas of a Redis primary. This allows you to scale database reads
+and to have highly available clusters.
+-	supports transactions which let you execute a group of commands as an isolated and atomic operation.
+-	supports Pub/Sub messaging with pattern matching which you can use for high performance
+chat rooms, real-time comment streams, social media feeds, and server intercommunication.
+-	allows you to execute transactional Lua scripts. Scripts can help you boost performance
+and simplify your application.
+-	has purpose-built commands for working with real-time geospatial data at scale. You can
+perform operations like finding the distance between two elements (for example people or places)
+and finding all elements within a given distance of a point.
+
+Amazon ElastiCache is a fully managed, in-memory caching service supporting flexible, real-time
+ use cases. Developers can use ElastiCache for caching, which accelerates application and database
+ performance, or as a primary data store for use cases that don't require durability like session stores,
+ gaming leaderboards, streaming, and analytics. ElastiCache is compatible with Redis and Memcached.

@@ -1,0 +1,15 @@
+A transaction is a very small unit of a program and it may contain several lowlevel tasks.
+A transaction in a database system must maintain Atomicity, Consistency, Isolation, and
+Durability in order to ensure accuracy, completeness, and data integrity.
+
+-how to solve the deadlock
+When a database is stuck in a deadlock, It is always better to avoid the deadlock rather
+than restarting or aborting the database.
+Deadlock avoidance method is suitable for smaller databases whereas the deadlock prevention
+method is suitable for larger databases.
+One method of avoiding deadlock is using application-consistent logic. In the above given
+example, Transactions that access Students and  Grades should always access the tables in the same order.
+For a large database, the deadlock prevention method is suitable. A deadlock can be prevented
+ if the resources are allocated in such a way that deadlock never occurs. The DBMS analyzes
+ the operations whether they can create a deadlock situation or not, If they do, that transaction
+ is never allowed to be executed

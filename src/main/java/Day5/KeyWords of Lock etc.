@@ -1,0 +1,82 @@
+Locks are one synchronization technique. A lock is an abstraction that allows at most one thread to
+own it at a time.
+
+Locks have two operations:
+1. acquire allows a thread to take ownership of a lock. If a thread tries to acquire a lock currently
+owned by another thread, it blocks until the other thread releases the lock. At that point, it will contend with any other threads that are trying to acquire the lock. At most one thread can own the lock at a time.
+2. release relinquishes ownership of the lock, allowing another thread to take ownership of it.
+
+In Java, the following idiom should be used:
+Lock l = ...;
+ l.lock();
+ try {
+   // access the resource protected by this lock
+ } finally {
+   l.unlock();
+ }
+
+Future is an interface that represents a future result of an asynchronous computation.
+This result will eventually appear in the Future after the processing is complete.
+Example:
+
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class FutureExample {
+    //Use Executors' static factory method to create ExecutorService instance
+    private ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    public Future<Integer> calculate(Integer input) {
+        //Passing a callable as an argument in submit() method
+        return executor.submit(() -> {
+            Thread.sleep(1000);
+            return 2 * input;
+        });
+    }
+
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        Future<Integer> future = new FutureExample().calculate(10);
+        while(!future.isDone()) {
+            System.out.println("Calculating..");
+            Thread.sleep(3000);
+        }
+
+        System.out.println(future.get());
+
+    }
+}
+
+
+
+A CompltableFuture is used for asynchronous programming. Asynchronous programming means writing
+non-blocking code. It runs a task on a separate thread than the main application thread and
+notifies the main thread about its progress, completion or failure.
+
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
+
+public class CompletableFutureExample {
+    public List<Integer> calculate (List<Integer> list) {
+        List<Integer> res = list.stream().map(n -> CompletableFuture.supplyAsync(() -> getNumber(n)))
+                                         .map(CompletableFuture -> CompletableFuture.thenApply(i -> 2 * i))
+                                         .map(t->t.join()).collect(Collectors.toList());
+        return res;
+    }
+
+    private int getNumber(int n) {
+        return n * n;
+    }
+
+    public static void main(String[] args) {
+        CompletableFutureExample cFuture = new CompletableFutureExample();
+        List<Integer> list = Arrays.asList(1, 4, 5, 9);
+        List<Integer> demo = cFuture.calculate(list);
+        System.out.print(demo);
+    }
+}
