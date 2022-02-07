@@ -1,0 +1,126 @@
+Assignment 1
+
+1.	What is JDK? JRE? JVM?
+Java Development Kit is the tools necessary to compile, document and package Java programs.It contains JRE + development tools.
+Java Runtime Environment refers to a runtime environment in which Java bytecode can be executed.It’s an implementation
+ of the JVM which physically exists.
+Java Virtual Machine an abstract machine. It is a specification that provides a run-time environment in which Java
+bytecode can be executed. JVM follows three notations: Specification, Implementation, and Runtime Instance.
+
+2.	What is java compiler?
+Java compiler is a program that converts a Java source program into platform-independent bytecode.
+
+3.	Why is java platform independent?
+In Java, source code is converted into java bytecode(intermediate code ) . Bytecode is a highly optimized
+form of instructions which does not depend on any platform or operating system language. So java bytecode
+can be converted into platform specific language at runtime by JVM interpreter. That's why java is platform
+independent just because of Java bytecode.
+
+4.	What is IDE? Why is it important for developers?
+An IDE, or Integrated Development Environment, enables programmers to consolidate the different aspects of
+writing a computer program. IDEs increase programmer productivity by combining common activities of writing
+software into a single application: editing source code, building executables, and debugging.
+
+5.	Is java case sensitive?
+Yes.
+6.	What do the following keywords do?
+static, final, public, private, void, null, package, Class, new
+static: is used to declare a field, method, or inner class as a class field. Static also is used to define a
+method as a class method. Class methods are bound to the class instead of to a specific instance, and can only
+operate on static fields.
+
+final: is used with Class to make sure no other class can extend it. For example, the String class is final
+and we can’t extend it. We can use the final keyword with methods to make sure child classes can’t override it.
+Java’s final keyword can be used with variables to make sure that it can be assigned only once. However the
+state of the variable can be changed, for example, we can assign a final variable to an object only once but
+ the object variables can change later on. Java interface variables are by default final and static.
+
+public: is used in the declaration of a class, method, or field; public classes, methods, and fields can
+ be accessed by the members of any class.
+
+private: is used in the declaration of a method, field, or inner class; private members can only be accessed
+by other members of their own class.
+
+void: is used to declare that a method does not return any value.
+
+null: is a reserved word for literal values. It’s a value of the reference variable. The access to a null
+reference generates a NullPointerException. It’s not allowed to pass null as a value to call the methods
+that contain any primitive data type.
+
+A package is a collection of related classes and interfaces.
+
+class: A type that defines the implementation of a particular kind of object. A class is a user defined
+blueprint or prototype from which objects are created.  It represents the set of properties or methods
+that are common to all objects of one type
+
+new: Used to create an instance of a class or array object
+
+7.	What is primitive type and reference type?
+There are eight primitive types in Java. Java has wrapper classes that convert the Java primitives into
+the reference types (objects). Every primitive data type has a class dedicated to it.
+
+8.	Is parameter passed by value or reference?
+Parameter is passed by value.
+
+9.	What is the output: System.out.println(1 > 0 : “A”:”B”);
+The output is “A”.
+
+10.	How to define constants in java?
+Example :  float pi = 3.14f;
+
+11.	What is String? Is it primitive type?
+String is a Class in java and defined in the java.lang package. String class represents character Strings.
+It’s not a primitive data type like int and long.
+
+12.	How to check if a String is representing a number?
+We can use a Java Built-in API:
+Integer.parseIn(String);
+
+13.	Write a program to implement the following activity diagram:
+
+
+
+14.	Write a program to merge two array of int.
+public int[] merge(int[] a, int[] b) {
+     int len1 = a.length, len2 = b.length;
+     int res = new int[len1 + len2];
+     Arrays.sort(a);
+     Arrays.sort(b);
+
+     int i = 0, j = 0, k = 0;
+     while (i < len1 && j < len2) {
+	if (a[i] < b[j]) {
+      res[k] = a[i];
+      i++;
+} else {
+     res[k] = b[j];
+}
+k++;
+     }
+
+     while (i < len1) {
+res[k++] = a[i++];
+     }
+     while (j < len2) {
+res[k++] = b[j++];
+      }
+      return res;
+}
+
+15.	Write a program to find the second largest number inside an array of int.
+public int findSecond(int[] nums) {
+     if (nums.length < 2) {
+	return -1;
+     }
+     int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE;
+
+     for (int i = 0; i < nums.length; i++) {
+           if (nums[i] > first) {
+	   second = first;
+                first = nums[i];
+          } else if (nums[i] > second && nums[i] != first) {
+  second = nums[i];
+          }
+   }
+   return second;
+}

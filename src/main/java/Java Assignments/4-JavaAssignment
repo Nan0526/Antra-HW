@@ -1,0 +1,87 @@
+Assignment 4
+1.	 What’s the difference between final, finally? What is finalize()?
+final is the keyword and access modifier which is used to apply restrictions on a class, method or variable.
+finally is the block in Java exception handling to execute the important code whether the exception occurs or not.
+finalize is the method in Java which is used to perform cleanup processing just before an object is garbage collected.
+
+2.	What’s the difference between throw and throws?
+Throw is a keyword which is used to throw an exception explicitly in the program inside a function or inside a block of code.
+Throws is a keyword used in the method signature used to declare an exception which might get thrown by the function while executing the code.
+
+3.	What are the two types of exceptions?
+Checked exception and unchecked exception.
+
+4.	What is error in java?
+An Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch. Most such errors are abnormal conditions.
+
+5.	Exception is object, true or false?
+True.
+
+6.	Can a finally block exist with a try block but without a catch?
+Yes.
+
+7.	From java 1.7, give an example of the try-resource feature.
+private DataSource ds;
+try (Connection con = ds.getConnection();
+     PreparedStatement ps = con.prepareStatement(sql);) {
+} catch (SQLException e) {
+}
+
+8.	What will happen to the Exception object after exception handling?
+ The Exception object will be garbage collected in the next garbage collection.
+
+9.	Can we use String as a condition in switch(str){} clause?
+Yes.
+
+10.	What’s the difference between ArrayList, LinkedList and vector?
+
+ArrayList is not synchronized.
+ArrayList internally uses a dynamic array to store the elements. It provides random access to its elements with a performance equal to O(1). It increments 50% of the current array size if the number of elements exceeds its capacity.
+ArrayList uses the Iterator interface to traverse the elements. Iterator is fail-fast.
+
+Vector is synchronized. It increments 100% means doubles the array size if the total number of elements exceeds than its capacity.
+A Vector can use the Iterator interface or Enumeration interface to traverse the elements.
+
+LinkedList internally uses a doubly-linked list to store the elements. It stores its data as a list of elements and every element is linked to its previous and next element. The search operation for an element has execution time equal to O(n).
+
+11.	What’s the difference between hashTable and hashMap?
+–The HashMap class is roughly equivalent to Hashtable, except that it is non-synchronized and permits nulls. (HashMap allows null values as key and value whereas Hashtable doesn't allow nulls).
+
+– One of the major differences between HashMap and Hashtable is that HashMap is non-synchronized whereas Hashtable is synchronized, which means Hashtable is thread-safe and can be shared between multiple threads but HashMap can not be shared between multiple threads without proper synchronization. Java 5 introduces ConcurrentHashMap which is an alternative to Hashtable and provides better scalability than Hashtable in Java.
+
+– Another significant difference between HashMap vs Hashtable is that Iterator in the HashMap is  a fail-fast iterator  while the enumerator for the Hashtable is not and throw ConcurrentModificationException if any other Thread modifies the map structurally  by adding or removing any element except Iterator's own remove() method. But this is not a guaranteed behavior and will be done by JVM with best effort. This is also an important difference between Enumeration and Iterator in Java.
+
+– One more notable difference between Hashtable and HashMap is that because of thread-safety and synchronization Hashtable is much slower than HashMap if used in a Single threaded environment. So if you don't need synchronization and HashMap is only used by one thread, it outperforms Hashtable in Java.
+
+– HashMap does not guarantee that the order of the map will remain constant over time.
+
+12.	What is static import?
+The static import declaration imports static members from classes, allowing them to be used without class qualification.
+
+13.	What is static block?
+A static block, or static initialization block, is code that is run once for each time a class is loaded into memory.
+
+14.	Explain the keywords: default(java 1.8), break, continue, synchronized, strictfp, transient, volatile, instanceOf
+The default keyword can be used to allow an interface to provide an implementation of a method.
+The break keyword is used to end the execution in the current loop body.
+The continue keyword is used to end the current iteration in a for loop (or a while loop), and continues to the next iteration.
+The synchronized keyword is used to designate synchronized methods and statements. A synchronized block of code is guarded by a lock that can only be acquired by one thread at a time. In a synchronized static method, the singleton Class object is implicitly
+used as the lock. In a synchronized non-static method, the object instance is implicitly used as the lock. In a synchronized statement, the lock must be provided as an argument. Multiple locks allow for more granular levels of synchronization.
+
+The strictfp keyword is used to restrict the precision and rounding of floating point calculations to ensure portability.
+
+The transient keyword declares that an instance field is not part of the default serialized form of an object.
+
+The volatile keyword is used to indicate that the value of a variable may be modified by multiple threads. Java’s memory model permits threads to cache the value of variables for performance. The volatile keyword must be used if a method relies on the
+latest value of a shared variable.
+
+The instanceof operator evaluates to true if and only if the runtime type of the object is assignment compatible with the class or interface.
+
+15.	Create a program including two threads – thread read and thread write.
+Input file ->Thread read -> Calculate -> buffered area
+Buffered area -> Thread write -> output file
+Detailed description is in assignment4.txt file.
+Sample input.txt file.
+Attached files are input.txt and a more detailed description file.
+
+

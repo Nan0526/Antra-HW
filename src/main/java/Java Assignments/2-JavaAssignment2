@@ -1,0 +1,60 @@
+Assignment 2
+1.	Why we need packages in java?
+By using packages, developers can easily modularize the code and optimize its reuse. Also, the code within the packages can be imported by other classes and reused. Packages help in avoiding name conflict. They provide easier access control on the code. Packages can also contain hidden classes which are not visible to the outer classes and only used within the package. Creates a proper hierarchical structure which makes it easier to locate the related classes
+
+2.	What is the default imported package?
+The java.lang package is imported by default.
+
+3.	What is Class? What is Object?
+A class is a user defined blueprint or prototype from which objects are created.  It represents the set of properties or methods that are common to all objects of one type
+
+An object is a single instance of a class. You can create many objects from the same class type.
+
+4.	Why do we need constructor?
+A constructor is a special method of a class that initializes new objects or instances of the class. It must have the same name as that of the class. Also, it has no return type and it is automatically called when an object is created.
+Without a constructor, you can't create instances of the class. Imagine that you could create a class that represents files, but without constructors, you couldn't create any files based on the class.
+
+5.	What is the default value of local variable? What is the default value of instance variable?
+There is no default value for local variables, so local variables should be declared and an initial value should be assigned before the first use.
+Instance variables have default values. For numbers, the default value is 0, for Booleans it is false, and for object references it is null.
+
+6.	What is garbage collection?
+Garbage Collection is the process of looking at heap memory, identifying which objects are in use and which are not, and deleting the unused objects. In Java, the process of deallocating memory is handled automatically by the garbage collector.
+We can run the garbage collector with code Runtime.getRuntime().gc() or use utility method System.gc().
+
+7.	The protected data can be accessed by subclasses or same package. True or false?
+True.
+
+8.	What is immutable class?
+Immutable class in java means that once an object is created, we cannot change its content. In Java, all the wrapper classes (like Integer, Boolean, Byte, Short) and String class is immutable.
+
+9.	What’s the difference between “==” and equals method?
+Equals() method is defined in Object class in Java and used for checking equality of two objects defined by business logic. public boolean equals(Object o) is the method provided by the Object class.
+“==” or equality operator in Java is a binary operator provided by Java programming language and used to compare primitives and objects.
+
+10.	What is wrapper class?
+Java wrapper classes are the Object representation of eight primitive types in java. All the wrapper classes in java are immutable and final. Java 5 autoboxing and unboxing allows easy conversion between primitive types and their corresponding wrapper classes.
+
+11.	What is autoboxing?
+The compiler can automatically convert primitive types into their wrapper objects in a process called autoboxing. Conversely, the compiler can convert wrapper objects into their primitive types in a process called unboxing. One common pitfall from unboxing occurs when a null object reference is unboxed into a primitive type, resulting in a NullPointerException.
+
+12.	StringBuilder is thread safe but slower than StringBuffer, true or false?
+False.
+
+13.	Constructor can be inherited, true or false?
+True.
+
+14.	How to call a super class’s constructor?
+We can use the super keyword to invoke superclass constructors in child class constructor but in this case, it should be the first statement in the constructor method.
+
+15.	Which class is the super class of all classes?
+The Object class
+
+16.	Create a program to count how many files/folders are there inside one folder.
+●	the count method should take a parameter called Criteria like this: count(Criteria criteria){}
+●	For Criteria class, multiple conditions should be included such as: folder path, includeSubFolder or not, the extension of the file be counted and so on.
+●	Optional: Take the input from keyboard.
+●	Take care of the invalid inputs. Exception handling.
+●	Get proper result displayed.
+”There are XXX file(s) and XXX folder(s) inside folder XXX with extension XXX.” or something user friendly.
+

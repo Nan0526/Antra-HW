@@ -1,0 +1,149 @@
+Assignment 3
+1.	Explain polymorphism.
+Polymorphism is the concept where an object behaves differently in different situations. There are two types of polymorphism – compile time polymorphism and runtime polymorphism. Compile-time polymorphism is achieved by method overloading.
+Runtime polymorphism is implemented when we have an “IS-A” relationship between objects. This is also called a method overriding because the subclass has to override the superclass method for runtime polymorphism.
+
+2.	What is overloading?
+Method overloading occurs when two or more methods in a class have the same name with different method signatures. Method overloading provides an API with flexibility by allowing clients to call up an appropriate version of a method without having to pass in null values for optional parameters.
+
+3.	What is overriding?
+Method overriding allows a subclass to change the functionality of a superclass. This occurs when a subclass defines a non-static method with the same method signature as a parent method. As of Java 5, the overridden method can declare either the same return type or a covariant (subclassed) return type. An overridden method will be invoked even when an object is cast to its parent’s type.
+
+4.	What does the final mean in this method:  public void doSomething(final Car aCar){}
+The final means that inside the method the variables can not be reassigned.
+
+If you have a final object, you can still change the state of the object. This is because objects in Java really are pointers to objects. And only the pointer is copied (and will be final in your method), not the actual object.
+
+5.	Suppose in question 4, the Car class has a method setColor(Color color){…}, inside doSomething method, Can we call aCar.setColor(red);?
+Yes, we can change the attributes of the Car object.
+
+6.	Can we declare a static variable inside a method?
+No. static means that it's a variable/method of a class, it belongs to the whole class but not to one of its certain objects. This means that static keyword can be used only in a 'class’ scope
+
+7.	What is the difference between interface and abstract class?
+Abstract classes can have abstract and non-abstract methods. It doesn't support multiple inheritance, can have final, non-final, static and non-static variables.
+and provide the implementation of the interface.
+The abstract keyword is used to declare an abstract class.
+An abstract class can extend another Java class and implement multiple Java interfaces.
+An abstract class can be extended using keyword extends.
+A Java abstract class can have class members like private, protected, etc.
+
+Interface can have only abstract methods. Since Java 8, it can have default and static methods also. It supports multiple inheritance and has only static and final variables.
+Interface can't provide the implementation of an abstract class.
+The interface keyword is used to declare the interface.
+An interface can extend another Java interface only.
+An interface can be implemented using the keyword "implements".
+Members of a Java interface are public by default.
+
+
+8.	Can an abstract class be defined without any abstract methods?
+Yes.
+
+9.	Since there is no way to create an object of abstract class, what’s the point of constructors of abstract class?
+ In abstract class, we have an instance variable, abstract methods, and non-abstract methods. We need to initialize the non-abstract methods and instance variables.
+Also, even if we don’t provide any constructor the compiler will add the default constructor in an abstract class.
+An abstract class can be inherited by any number of sub-classes, thus functionality of the constructor present in the abstract class can be used by them.
+The constructor inside the abstract class can only be called during constructor chaining, i.e. when we create an instance of sub-classes. Therefore abstract classes have a constructor.
+
+
+10.	What is a native method?
+Native methods are Java methods that start in a language other than Java. Native methods can access system-specific functions and APIs that are not available directly in Java. For example, a native method allows us to write methods (either an instance method or a class method) whose implementation is written in another programming language such as C.
+
+The use of native methods limits the portability of an application, because it involves system-specific code. Native methods can either be new native code statements or native code statements that call existing native code.
+
+11.	What is marker interface?
+A marker interface is an empty interface without any method but used to force some functionality in implementing classes by Java. Some of the well-known marker interfaces are Serializable and Cloneable.
+
+12.	Why to override equals and hashCode methods?
+We must override hashCode() in every class that overrides equals(). Failure to do so will result in a violation of the general contract for Object.hashCode(), which will prevent our class from functioning properly in conjunction with all hash-based collections, including HashMap, HashSet, and Hashtable.
+
+13.	What’s the difference between int and Integer?
+int is a primitive type in Java.
+Integer is a reference type. It is the wrapper class of int.
+
+14.	What is serialization?
+To serialize an object means to convert its state to a byte stream so that the byte stream can be reverted back into a copy of the object. A Java object is serializable if its class or any of its superclasses implements either the java.io.Serializable interface or its subinterface, java.io.Externalizable.
+
+15.	Create List and Map. List A contains 1,2,3,4,10(integer). Map B contains ("a","1") ("b","2") ("c","10")   (key = string, value = string)
+Question: get a list which contains all the elements in list A, but not in map B.
+
+ public  List<Integer> compareElements(List<Integer> list, Map<String,Integer> map) {
+        List<Integer> res = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            if (list.contains(entry.getValue())) {
+                set.add(entry.getValue());
+            }
+        }
+
+        for (Integer i : list) {
+            if (!set.contains(i)) {
+                res.add(i);
+            }
+        }
+        return res;
+   }
+
+16.	Implement a group of classes that have common behavior/state as Shape. Create Circle, Rectangle and Square for now as later on we may need more shapes. They should have the ability to calculate the area. They should be able to compare using area. Please write a program to demonstrate the classes and comparison.  You can use either abstract or interface. Comparator or Comparable interface.
+
+
+
+public abstract class Shape {
+    public abstract int area();
+}
+
+public class Rectangle extends Shape {
+    private int width;
+    private int length;
+
+    public Rectangle (int width, int length) {
+        this.width = width;
+        this.length = length;
+    }
+
+    @Override
+    public int area() {
+        return width * length;
+    }
+}
+
+public class Circle extends Shape{
+    private int radius;
+    final double pi = Math.PI;
+
+    public Circle(int radius) {
+        this.radius = radius;
+    }
+    @Override
+    public int area() {
+        return (int) pi * radius * radius;
+    }
+    }
+
+public class Square extends Shape{
+    private int width;
+
+    public Square (int width) {
+        this.width = width;
+    }
+
+    @Override
+    public int area() {
+        return width * width;
+    }
+}
+
+public class ShapeComparator implements Comparator<Shape> {
+    @Override
+    public int compare(Shape s1, Shape s2) {
+        return Integer.compare(s1.area(), s2.area());
+    }
+}
+
+
+
+
+
+
+
