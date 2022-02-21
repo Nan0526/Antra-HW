@@ -1,0 +1,23 @@
+Redis vs. EhCache vs. OSCache
+
+Redis vs Ehcache
+You can think Redis as a shared data structure, while Ehcache is a memory block storing serialized data objects.
+ This is the main difference. Redis as a shared data structure means you can put some predefined data structure
+ (such as String, List, Set etc) in one language and retrieve it in another language.
+你可以把 Redis 看作一个共享数据结构，而 Ehcache 是一个存储序列化数据对象的内存块。 这是主要区别。
+Redis 作为一种共享数据结构意味着您可以将一些预定义的数据结构（如 String、List、Set 等）放入一种语言中，并用另一种语言检索它
+
+OSCache
+OSCache is a Java framework developed by OpenSymphony that makes it easy to cache content in Web applications.
+With hibernate, it can be configured to act as second level cache. In my previous post, we learned about
+configuring EhCache with hibernate, which is default second level cache in hibernate.
+OSCache 是由 OpenSymphony 开发的 Java 框架，可以轻松地在 Web 应用程序中缓存内容。 使用hibernate，它可以配置为二级缓存。
+在我之前的帖子中，我们了解了如何使用 hibernate 配置 EhCache，这是 hibernate 中默认的二级缓存。
+
+
+Ehcache
+Ehcache is an open source Java distributed cache for general-purpose caching, Java EE and light-weight
+containers. Ehcache is available under an Apache open source license. Ehcache was developed by Greg Luck
+starting in 2003. In 2009, the project was purchased by Terracotta, which provides paid support.
+Ehcache 是一个开源的 Java 分布式缓存，用于通用缓存、Java EE 和轻量级容器。 Ehcache 在 Apache 开源许可下可用。
+Ehcache 由 Greg Luck 于 2003 年开始开发。2009 年，该项目被提供有偿支持的 Terracotta 收购。
