@@ -7,5 +7,5 @@
 
 - [Java Fundamental - All Assignments](https://docs.google.com/document/d/1mAgsocvb_SWuTV7fVw8E5r07J83RFTBzUpB22EJjh9Q/)
 
-- [Java Fundamental - All Assignments](https://docs.google.com/document/d/14HknuA6j-QGri6QgkH9_EKQakauU0dfv5M00wwUVQHE/edit#heading=h.gpm37zbpxrl0<project-name>/issues "Issues Page")
+- [Java Fundamental - Batch](https://docs.google.com/document/d/14HknuA6j-QGri6QgkH9_EKQakauU0dfv5M00wwUVQHE/edit#heading=h.gpm37zbpxrl0<project-name>/issues "Issues Page")
 
